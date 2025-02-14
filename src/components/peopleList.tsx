@@ -5,7 +5,7 @@ import { usePeople } from "./hooks/usePeople";
 
 export default function PeopleList() {
   const { filters } = usePeopleStore();
-  const { data, error, isError, isFetching } = usePeople(filters);
+  const { data } = usePeople(filters);
 
   console.log(data);
 

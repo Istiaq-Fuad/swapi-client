@@ -1,4 +1,4 @@
-import { People, PeopleFilters } from "@/utils/types";
+import { PeopleFilters } from "@/utils/types";
 import { create } from "zustand";
 
 interface PeopleStore {
