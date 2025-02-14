@@ -5,7 +5,6 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
-import { usePeopleStore } from "@/store/peopleStore";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SearchCharacter() {
@@ -13,12 +12,11 @@ export default function SearchCharacter() {
   const searchParams = useSearchParams();
   const search = searchParams.get("search") || "";
 
-  const [Loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState(search);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
-    router.push(`?search=${debouncedSearchTerm}`, );
+    router.push(`?search=${debouncedSearchTerm}`);
   }, [debouncedSearchTerm]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -11,7 +11,7 @@ export default function PeopleList() {
   const page = parseInt(searchParams.get("page") || "1");
 
   const {
-    data: { count, next, previous, results },
+    data: { count, results },
     isLoading,
   } = usePeople({ page, name: search });
 
