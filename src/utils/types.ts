@@ -107,10 +107,10 @@ export interface Person {
   mass: string; // The mass of this person in kilograms
   skin_color: string; // The skin color of this person
   homeworld: string; // The URL of the homeworld planet resource
-  films: Film[]; // An array of film resource URLs that this person has appeared in
-  species: Species[]; // An array of species resource URLs that this person belongs to
-  starships: Starship[]; // An array of starship resource URLs that this person has piloted
-  vehicles: Vehicle[]; // An array of vehicle resource URLs that this person has piloted
+  films: string[]; // An array of film resource URLs that this person has appeared in
+  species: string[]; // An array of species resource URLs that this person belongs to
+  starships: string[]; // An array of starship resource URLs that this person has piloted
+  vehicles: string[]; // An array of vehicle resource URLs that this person has piloted
   url: string; // The hypermedia URL of this resource
   created: string; // The ISO 8601 date format of when this resource was created
   edited: string; // The ISO 8601 date format of when this resource was last edited

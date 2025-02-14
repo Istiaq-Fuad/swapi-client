@@ -22,7 +22,7 @@ export default function PeopleList() {
 
   return (
     <div className="w-[90%] mx-auto">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-3">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 p-3">
         {people.map((person) => (
           <PersonCard key={person.url} person={person} />
         ))}

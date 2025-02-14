@@ -1,6 +1,9 @@
+"use client";
+
 import { Person } from "@/utils/types";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function PersonCard({ person }: { person: Person }) {
   return (
@@ -21,8 +24,10 @@ export default function PersonCard({ person }: { person: Person }) {
         <p>
           <strong>Mass:</strong> {person.mass} kg
         </p>
-        <Button variant="outline" className="mt-3 w-full">
-          View Details
+        <Button asChild variant="outline" className="mt-3 w-full">
+          <Link href={`/character/${person.url.split("/").slice(-2)[0]}`}>
+            View Details
+          </Link>
         </Button>
       </CardContent>
     </Card>
