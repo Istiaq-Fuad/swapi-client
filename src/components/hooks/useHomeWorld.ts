@@ -1,4 +1,3 @@
-import { getFilms } from "@/lib/getFilm";
 import { getHomeWorld } from "@/lib/getHomeWorld";
 import { useSuspenseQuery } from "@tanstack/react-query";
 

@@ -17,7 +17,7 @@ export default function SearchCharacter() {
 
   useEffect(() => {
     router.push(`?search=${debouncedSearchTerm}`);
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, router]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value.trim());
