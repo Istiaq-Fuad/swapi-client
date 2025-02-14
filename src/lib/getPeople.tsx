@@ -1,4 +1,6 @@
-export async function searchPeopleByName(name: string, page: number) {
+import { PeopleResponse } from "@/utils/types";
+
+export async function searchPeopleByName(name: string, page: number) : Promise<PeopleResponse> {
   const res = await fetch(
     `https://swapi.dev/api/people/?search=${name}&page=${page}&format=json`
   );
@@ -8,7 +10,7 @@ export async function searchPeopleByName(name: string, page: number) {
   return people;
 }
 
-export async function searchAllPeople(page: number) {
+export async function searchAllPeople(page: number) : Promise<PeopleResponse> {
   const res = await fetch(
     `https://swapi.dev/api/people/?page=${page}&format=json`
   );

@@ -6,14 +6,20 @@ import { Button } from "./ui/button";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { usePeopleStore } from "@/store/peopleStore";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SearchCharacter() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search") || "";
+
+  const [searchTerm, setSearchTerm] = useState(search);
   const debouncedSearchTerm = useDebounce(searchTerm, 800);
   const { setFilters } = usePeopleStore();
 
   useEffect(() => {
     setFilters({ name: debouncedSearchTerm, page: 1 });
+    router.push(`?search=${debouncedSearchTerm}`);
   }, [debouncedSearchTerm]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +42,7 @@ export default function SearchCharacter() {
         <Input
           name="search"
           type="text"
+          value={searchTerm}
           className="min-w-60 w-full pl-3 py-2 pr-10 border border-solid border-black/65"
           placeholder="Search by character name"
           onChange={handleChange}
