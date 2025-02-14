@@ -12,12 +12,21 @@ export default function PeopleList() {
 
   const {
     data: { count, next, previous, results },
+    isLoading,
   } = usePeople({ page, name: search });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
       {JSON.stringify(results)}
-      <PaginationWithLinks page={page} pageSize={PERSON_PER_PAGE} totalCount={count} />
+      <PaginationWithLinks
+        page={page}
+        pageSize={PERSON_PER_PAGE}
+        totalCount={count}
+      />
     </div>
   );
 }

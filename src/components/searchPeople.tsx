@@ -13,17 +13,16 @@ export default function SearchCharacter() {
   const searchParams = useSearchParams();
   const search = searchParams.get("search") || "";
 
+  const [Loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState(search);
-  const debouncedSearchTerm = useDebounce(searchTerm, 800);
-  const { setFilters } = usePeopleStore();
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
-    setFilters({ name: debouncedSearchTerm, page: 1 });
-    router.push(`?search=${debouncedSearchTerm}`);
+    router.push(`?search=${debouncedSearchTerm}`, );
   }, [debouncedSearchTerm]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value.trim());
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
