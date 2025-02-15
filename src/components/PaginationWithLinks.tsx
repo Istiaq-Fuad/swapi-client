@@ -57,6 +57,7 @@ export function PaginationWithLinks({
 
   const totalPageCount = Math.ceil(totalCount / pageSize);
 
+  // Preserves existing query parameters while updating the page parameter
   const buildLink = useCallback(
     (newPage: number) => {
       const key = pageSearchParam || "page";
@@ -68,6 +69,7 @@ export function PaginationWithLinks({
     [searchParams, pathname, pageSearchParam]
   );
 
+  // updates the URL when page size changes
   const navToPageSize = useCallback(
     (newPageSize: number) => {
       const key = pageSizeSelectOptions?.pageSizeSearchParam || "pageSize";
@@ -83,6 +85,7 @@ export function PaginationWithLinks({
     const items: ReactNode[] = [];
     const maxVisiblePages = 5;
 
+    // Shows all page numbers if total pages ≤ 5
     if (totalPageCount <= maxVisiblePages) {
       for (let i = 1; i <= totalPageCount; i++) {
         items.push(
@@ -94,6 +97,7 @@ export function PaginationWithLinks({
         );
       }
     } else {
+      // Always show the first page
       items.push(
         <PaginationItem key={1}>
           <PaginationLink href={buildLink(1)} isActive={page === 1}>
@@ -101,7 +105,8 @@ export function PaginationWithLinks({
           </PaginationLink>
         </PaginationItem>
       );
-
+      
+      // Shows ellipsis (...) for skipped ranges
       if (page > 3) {
         items.push(
           <PaginationItem key="ellipsis-start">
@@ -109,7 +114,8 @@ export function PaginationWithLinks({
           </PaginationItem>
         );
       }
-
+      
+      // Shows current page and 1-2 pages around it
       const start = Math.max(2, page - 1);
       const end = Math.min(totalPageCount - 1, page + 1);
 
@@ -123,6 +129,7 @@ export function PaginationWithLinks({
         );
       }
 
+      // Shows ellipsis (...) for skipped ranges
       if (page < totalPageCount - 2) {
         items.push(
           <PaginationItem key="ellipsis-end">
@@ -131,6 +138,7 @@ export function PaginationWithLinks({
         );
       }
 
+      // Always show the last page
       items.push(
         <PaginationItem key={totalPageCount}>
           <PaginationLink
