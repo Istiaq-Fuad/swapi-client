@@ -26,8 +26,8 @@ A Next.js application that fetches data from the Star Wars API (SWAPI) and displ
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/your-username/star-wars-explorer.git
-   cd star-wars-explorer
+   git clone https://github.com/Istiaq-Fuad/swapi-client.git
+   cd swapi-client
    ```
 
 2. **Install Dependencies**
