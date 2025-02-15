@@ -1,6 +1,6 @@
 import GlobalLoading from "@/components/GlobalLoading";
 import PeopleList from "@/components/PersonList";
-import SearchPeople from "@/components/searchPeople";
+import SearchPeople from "@/components/SearchPeople";
 import { Suspense } from "react";
 
 export default async function Home({}) {
