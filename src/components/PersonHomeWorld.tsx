@@ -8,7 +8,16 @@ export default function PersonHomeWorld({
 }: {
   homeworldURL: string;
 }) {
-  const { data: homeworld } = useHomeWorld(homeworldURL || "");
+  const { data: homeworld, isError } = useHomeWorld(homeworldURL || "");
+
+  if (isError) {
+    return (
+      <div className="h-full flex justify-center items-center p-6">
+        Couldn't load the HomeWorld info. Please try again later.
+      </div>
+    );
+  }
+
   return (
     <div className="p-4">
       <div className="grid grid-cols-2 gap-y-4">

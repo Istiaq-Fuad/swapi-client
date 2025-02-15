@@ -10,12 +10,17 @@ import FilmSkeleton from "./FilmSkeleton";
 import GlobalLoading from "./GlobalLoading";
 import HomeWorldSkeleton from "./HomeWorldSkeleton";
 import { FilmReel, Globe } from "@phosphor-icons/react";
+import ErrorState from "./ErrorState";
 
 export default function PersonDetails({ id }: { id: string }) {
-  const { data: person, isLoading: personLoading } = usePeopleById(id);
+  const { data: person, isLoading: personLoading, isError } = usePeopleById(id);
 
   if (personLoading) {
     return <GlobalLoading />;
+  }
+
+  if (isError) {
+    return <ErrorState />;
   }
 
   return (

@@ -6,6 +6,8 @@ import { PaginationWithLinks } from "./PaginationWithLinks";
 import { PERSON_PER_PAGE } from "@/utils/constants";
 import PersonCard from "./PersonCard";
 import GlobalLoading from "./GlobalLoading";
+import NoResults from "./NoResults";
+import ErrorState from "./ErrorState";
 
 export default function PeopleList() {
   const searchParams = useSearchParams();
@@ -15,10 +17,19 @@ export default function PeopleList() {
   const {
     data: { count, results: people },
     isLoading,
+    isError,
   } = usePeople({ page, name: search });
 
   if (isLoading) {
     return <GlobalLoading />;
+  }
+
+  if (isError) {
+    return <ErrorState />;
+  }
+
+  if (count === 0) {
+    return <NoResults />;
   }
 
   return (

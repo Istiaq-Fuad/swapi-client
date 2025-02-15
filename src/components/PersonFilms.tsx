@@ -4,7 +4,15 @@ import { Star } from "@phosphor-icons/react";
 import { useFilms } from "./hooks/useFilms";
 
 export default function PersonFilms({ filmsURLs }: { filmsURLs: string[] }) {
-  const { data: films } = useFilms(filmsURLs || []);
+  const { data: films, isError } = useFilms(filmsURLs || []);
+
+  if (isError) {
+    return (
+      <div className="h-full flex justify-center items-center p-6">
+        Couldn't load the films. Please try again later.
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 flex-1 overflow-y-auto custom-scrollbar">

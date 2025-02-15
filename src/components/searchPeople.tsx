@@ -16,7 +16,10 @@ export default function SearchPeople() {
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
   useEffect(() => {
-    if (debouncedSearchTerm) router.push(`?search=${debouncedSearchTerm}`);
+    if (debouncedSearchTerm)
+     router.push(`?search=${debouncedSearchTerm}`);
+    else
+      router.push("/");
   }, [debouncedSearchTerm, router]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
