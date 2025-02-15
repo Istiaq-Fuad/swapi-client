@@ -4,7 +4,7 @@ import CardButton from "./CardButton";
 
 export default function PersonCard({ person }: { person: Person }) {
   return (
-    <Card className="w-full shadow-lg">
+    <Card className="w-full shadow-lg transition-transform duration-300 hover:scale-105">
       <CardHeader>
         <CardTitle>{person.name}</CardTitle>
       </CardHeader>

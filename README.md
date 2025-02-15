@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Star Wars Character Explorer
 
-## Getting Started
+A Next.js application that fetches data from the Star Wars API (SWAPI) and displays character cards with pagination, search functionality, and detailed character pages.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Pagination** – Browse through Star Wars characters with proper pagination.
+- **Search Bar** – Filter characters by name using a debounced search input.
+- **Character Cards** – Display character details such as name, height, birth year, and gender.
+- **Character Details Page** – Clicking on a character navigates to `/character/[id]`, displaying more details.
+- **Clean UI** – Styled with TailwindCSS for a modern and responsive look.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 15** – React framework for server-side rendering and routing.
+- **React 19** – For UI components.
+- **TailwindCSS** – Styling for a clean and responsive design.
+- **React Query** – Efficient data fetching and caching.
+- **Axios / Fetch API** – Handling API requests.
+- **Debounced Search** – Improved search experience with minimal API calls.
+- **Next.js Dynamic Routing** – Character details page (`/character/[id]`).
+- **PNPM** – Used as the package manager for faster and efficient dependency management.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Installation & Setup
 
-## Learn More
+1. **Clone the Repository**
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   git clone https://github.com/your-username/star-wars-explorer.git
+   cd star-wars-explorer
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install Dependencies**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```sh
+   pnpm install
+   ```
 
-## Deploy on Vercel
+3. **Run the Development Server**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   pnpm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   The app will be available at `http://localhost:3000`.
+
+4. **Build for Production**
+
+   ```sh
+   pnpm run build && pnpm run start
+   ```
+
+## 🔍 API Fetching, Pagination & Search
+
+- **Fetching Data:** Data fetching is handled using React Query for better state management, error handling, and caching.
+  - Multiple URLs are fetched in parallel to enhance user experience.
+- **Pagination Logic:**
+  - Uses `next` and `previous` page URLs from the API response.
+  - The pagination component works by:
+    1. Taking current page, page size, and total item count as inputs.
+    2. Calculating total pages based on these values.
+    3. Building navigation links by manipulating URL query parameters.
+    4. Displaying an adaptive page number layout (showing all numbers for few pages, or using ellipses for many pages).
+    5. Providing Previous/Next buttons with proper disabling at boundaries.
+    6. Optionally offering a page size dropdown that preserves URL structure.
+    7. Maintaining all existing query parameters during navigation.
+    8. Using proper accessibility attributes for keyboard navigation.
+  - The key advantage is that it uses URL-based navigation rather than state, making pages shareable and bookmarkable.
+- **Search Implementation:**
+  - The search functionality uses the `useDebounce` hook from the `@uidotdev/usehooks` package, debouncing the input by 400ms.
+  - This reduces the number of API calls by only sending a request after the user stops typing for 400ms, improving efficiency and performance.
+  - Filters results based on character names.
+
+## 📽️ Video Walkthrough
+
+[🔗 Project Walkthrough Video](#) _(Insert link to Google Drive, YouTube, or Loom video)_
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+Happy Coding! 🚀

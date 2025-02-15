@@ -13,7 +13,7 @@ export default function SearchPeople() {
   const search = searchParams.get("search") || "";
 
   const [searchTerm, setSearchTerm] = useState(search);
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  const debouncedSearchTerm = useDebounce(searchTerm, 400);
 
   useEffect(() => {
     if (debouncedSearchTerm)
