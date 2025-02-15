@@ -2,9 +2,10 @@
 
 import { usePeople } from "./hooks/usePeople";
 import { useSearchParams } from "next/navigation";
-import { PaginationWithLinks } from "./paginationWithLinks";
+import { PaginationWithLinks } from "./PaginationWithLinks";
 import { PERSON_PER_PAGE } from "@/utils/constants";
 import PersonCard from "./PersonCard";
+import GlobalLoading from "./GlobalLoading";
 
 export default function PeopleList() {
   const searchParams = useSearchParams();
@@ -17,7 +18,7 @@ export default function PeopleList() {
   } = usePeople({ page, name: search });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <GlobalLoading />;
   }
 
   return (

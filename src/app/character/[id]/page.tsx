@@ -1,4 +1,4 @@
-import PeopleDetails from "@/components/PeopleDetails";
+import PeopleDetails from "@/components/PersonDetails";
 
 export default async function CharacterDetails({
   params,

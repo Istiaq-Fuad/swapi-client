@@ -1,13 +1,10 @@
-"use client";
-
 import { Person } from "@/utils/types";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import Link from "next/link";
+import CardButton from "./CardButton";
 
 export default function PersonCard({ person }: { person: Person }) {
   return (
-    <Card className="w-52 shadow-lg">
+    <Card className="w-full shadow-lg">
       <CardHeader>
         <CardTitle>{person.name}</CardTitle>
       </CardHeader>
@@ -21,14 +18,7 @@ export default function PersonCard({ person }: { person: Person }) {
         <p>
           <strong>Height:</strong> {person.height} cm
         </p>
-        <p>
-          <strong>Mass:</strong> {person.mass} kg
-        </p>
-        <Button asChild variant="outline" className="mt-3 w-full">
-          <Link href={`/character/${person.url.split("/").slice(-2)[0]}`}>
-            View Details
-          </Link>
-        </Button>
+        <CardButton url={person.url} />
       </CardContent>
     </Card>
   );

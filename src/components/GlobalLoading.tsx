@@ -1,4 +1,4 @@
-export default function LoadingState() {
+export default function GlobalLoading() {
   return (
     <div className="h-[50vh] w-full flex justify-center items-center">
       <div role="status">

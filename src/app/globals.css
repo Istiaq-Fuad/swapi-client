@@ -80,3 +80,43 @@ body {
     opacity: 1;
   }
 }
+
+/* Custom scrollbar styling for WebKit browsers (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Remove up and down arrows in WebKit browsers */
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #888 #f1f1f1; /* thumb and track color */
+}
+
+/* For Edge and IE */
+.custom-scrollbar {
+  -ms-overflow-style: none; /* Hide default scrollbar */
+}
+
+/* Optional: Ensure the scrollbar container has rounded corners */
+.custom-scrollbar {
+  border-radius: 4px;
+}

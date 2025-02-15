@@ -1,15 +1,15 @@
-import LoadingState from "@/components/LoadingState";
-import PeopleList from "@/components/peopleList";
-import SearchCharacter from "@/components/searchPeople";
+import GlobalLoading from "@/components/GlobalLoading";
+import PeopleList from "@/components/PersonList";
+import SearchPeople from "@/components/searchPeople";
 import { Suspense } from "react";
 
 export default async function Home({}) {
   return (
     <div className="min-h-screen w-full">
       <div className="bg-gray-100 w-full p-12">
-        <SearchCharacter />
+        <SearchPeople />
       </div>
-      <Suspense fallback={<LoadingState />}>
+      <Suspense fallback={<GlobalLoading />}>
         <PeopleList />
       </Suspense>
     </div>

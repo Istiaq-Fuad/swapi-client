@@ -1,5 +1,5 @@
-import LoadingState from "@/components/LoadingState";
+import GlobalLoading from "@/components/GlobalLoading";
 
 export default function LoadingPage() {
-  return <LoadingState />;
+  return <GlobalLoading />;
 }

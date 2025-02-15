@@ -7,16 +7,16 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function SearchCharacter() {
+export default function SearchPeople() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("search") || "";
 
   const [searchTerm, setSearchTerm] = useState(search);
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
   useEffect(() => {
-    router.push(`?search=${debouncedSearchTerm}`);
+    if (debouncedSearchTerm) router.push(`?search=${debouncedSearchTerm}`);
   }, [debouncedSearchTerm, router]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,6 @@ export default function SearchCharacter() {
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     const formData = new FormData(e.currentTarget);
     setSearchTerm(formData.get("search")?.toString() || "");
     e.currentTarget.focus();
@@ -33,14 +32,14 @@ export default function SearchCharacter() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto w-96 flex items-center gap-x-4"
+      className="mx-auto max-w-[400px] flex items-center gap-x-4"
     >
       <div className="relative w-full">
         <Input
           name="search"
           type="text"
           value={searchTerm}
-          className="min-w-60 w-full pl-3 py-2 pr-10 border border-solid border-black/65"
+          className="w-full pl-3 py-2 pr-10 border border-solid border-black/65"
           placeholder="Search by character name"
           onChange={handleChange}
         />
