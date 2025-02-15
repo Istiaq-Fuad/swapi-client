@@ -4,7 +4,10 @@ import { Star } from "@phosphor-icons/react";
 import { useFilms } from "./hooks/useFilms";
 
 export default function PersonFilms({ filmsURLs }: { filmsURLs: string[] }) {
-  const { data: films, isError } = useFilms(filmsURLs || []);
+  const results = useFilms(filmsURLs || []);
+
+  const isError = results.some((result) => result.isError);
+  const films = results.map((result) => result.data).filter(Boolean);
 
   if (isError) {
     return (
