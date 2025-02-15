@@ -73,7 +73,7 @@ A Next.js application that fetches data from the Star Wars API (SWAPI) and displ
 
 ## 📽️ Video Walkthrough
 
-[🔗 Project Walkthrough Video](#) _(Insert link to Google Drive, YouTube, or Loom video)_
+[🔗 Project Walkthrough Video](https://drive.google.com/file/d/13FHOhQVT9zfLQKi9LWHwxJZuhFv2mEmF/view?usp=sharing)
 
 ## 📜 License
 
