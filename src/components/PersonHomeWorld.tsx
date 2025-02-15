@@ -13,7 +13,7 @@ export default function PersonHomeWorld({
   if (isError) {
     return (
       <div className="h-full flex justify-center items-center p-6">
-        Couldn't load the HomeWorld info. Please try again later.
+        Couldn&apos;t load the HomeWorld info. Please try again later.
       </div>
     );
   }

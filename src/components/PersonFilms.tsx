@@ -9,7 +9,7 @@ export default function PersonFilms({ filmsURLs }: { filmsURLs: string[] }) {
   if (isError) {
     return (
       <div className="h-full flex justify-center items-center p-6">
-        Couldn't load the films. Please try again later.
+        Couldn&apos;t load the films. Please try again later.
       </div>
     );
   }
