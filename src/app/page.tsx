@@ -18,7 +18,7 @@ export default async function Home({}) {
         />
       </Link>
       
-      <div className="bg-gray-100 w-full p-12 mt-8 sm:mt-0">
+      <div className="bg-gray-100 w-full p-12 pt-20 sm:p-12">
         <SearchPeople />
       </div>
       <Suspense fallback={<GlobalLoading />}>
