@@ -71,10 +71,6 @@ A Next.js application that fetches data from the Star Wars API (SWAPI) and displ
   - This reduces the number of API calls by only sending a request after the user stops typing for 400ms, improving efficiency and performance.
   - Filters results based on character names.
 
-## 📽️ Video Walkthrough
-
-[🔗 Project Walkthrough Video](https://drive.google.com/file/d/13FHOhQVT9zfLQKi9LWHwxJZuhFv2mEmF/view?usp=sharing)
-
 ## 📜 License
 
 This project is licensed under the MIT License.
